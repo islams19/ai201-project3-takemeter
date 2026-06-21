@@ -255,3 +255,96 @@ AI tools will be used for:
 * Failure analysis
 
 AI tools will not make final labeling decisions. All final dataset labels, evaluation results, and conclusions will be reviewed and approved by me.
+
+## AI-Assisted Annotation Process
+
+To speed up the annotation process, I may use ChatGPT to suggest labels for a batch of NBA comments before reviewing them manually.
+
+The available labels are:
+
+* Analysis
+* Hot Take
+* Low-Effort / Noise
+
+Every AI-generated label will be reviewed before being added to the final dataset. If a suggested label does not match the label definitions in this planning document, it will be corrected.
+
+### Difficult Cases Log
+
+#### Case 1
+
+Comment:
+"LeBron is overrated because he struggles against elite defenses in the playoffs."
+
+Possible Labels:
+
+* Analysis
+* Hot Take
+
+Final Decision:
+
+Analysis
+
+Reason:
+
+The comment provides a basketball-related reason for the claim rather than only expressing an opinion.
+
+#### Case 2
+
+Comment:
+"The West was unreal."
+
+Possible Labels:
+
+* Hot Take
+* Low-Effort / Noise
+
+Final Decision:
+
+Hot Take
+
+Reason:
+
+The comment expresses an opinion but does not provide supporting evidence.
+
+#### Case 3
+
+Comment:
+"Champagnie played like a 2nd overall pick more than the actual 2nd overall pick."
+
+Possible Labels:
+
+* Analysis
+* Hot Take
+
+Final Decision:
+
+Hot Take
+
+Reason:
+
+The statement is mainly an opinion and comparison rather than a detailed basketball argument.
+
+#### Case 4
+
+Comment:
+"I don't agree with that."
+
+Possible Labels:
+
+* Hot Take
+* Low-Effort / Noise
+
+Final Decision:
+
+Low-Effort / Noise
+
+Reason:
+
+The comment provides no basketball reasoning or evidence.
+
+### Annotation Review Policy
+
+All final labels will be determined by me after reviewing each example individually.
+
+AI assistance may be used to suggest labels, identify edge cases, and help with error analysis, but AI will not make the final labeling decisions.
+
