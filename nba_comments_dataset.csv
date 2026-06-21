@@ -1,21 +1,51 @@
-text,label,split
-"Jokic helps his teammates get easy shots.",Insightful Take,train
-"Tatum is not as good as everyone thinks.",Hot Take,train
-"Bad take.",Low-Effort / Noise,train
-"Luka makes smart plays with the ball.",Insightful Take,train
-"LeBron is done.",Hot Take,train
-"That is wrong.",Low-Effort / Noise,train
-"The Celtics play good team defense.",Insightful Take,train
-"Giannis is the best player ever.",Hot Take,train
-"Trash team.",Low-Effort / Noise,train
-"The Nuggets move the ball well.",Insightful Take,train
-"Curry changes games with his shooting.",Insightful Take,train
-"Anthony Edwards will be better than Jordan.",Hot Take,train
-"I do not agree.",Low-Effort / Noise,train
-"The Knicks are playing better this year.",Insightful Take,train
-"Embiid will never win a title.",Hot Take,train
-"Not true.",Low-Effort / Noise,train
-"Brunson has become a better leader.",Insightful Take,train
-"SGA is already better than Kobe.",Hot Take,train
-"Terrible opinion.",Low-Effort / Noise,train
-"The Thunder have many good young players.",Insightful Take,train
+text,label,notes
+"One of the best athletes in any sport","Hot Take","Strong opinion"
+"Best at the chase down block ever","Hot Take","Strong claim"
+"The JRich 360 block is so funny and incredible","Hot Take","Reaction"
+"Watching this man play at 42 is a blessing","Hot Take","Praise"
+"6'9 forward with elite speed and power combined with a computer-made brain for basketball","Analysis","Gives basketball reasoning"
+"Champagnie played like a 2nd overall pick more than the actual 2nd overall pick","Hot Take","Comparison without evidence"
+"Champagnie was undrafted and is playing meaningful minutes in the WCF making minimum money","Analysis","Specific facts"
+"Bro genuinely lives in his own reality","Low-Effort / Noise","Insult"
+"Good for you joining the scrappy underdog 73-win team","Hot Take","Sarcasm"
+"Durant is delusional","Low-Effort / Noise","Insult"
+"They won 73 games and were inches away from going back to back","Analysis","Uses evidence"
+"Lmfao Kevin","Low-Effort / Noise","Joke"
+"Whatever he has to keep telling himself","Low-Effort / Noise","Dismissive comment"
+"I still can't believe those teams were up 3-1 against a 73-win Warriors team","Analysis","Basketball context"
+"The West was unreal","Hot Take","Broad opinion"
+"They bounced the 67-win Spurs with a 40-1 home record","Analysis","Uses facts"
+"Despite their lack of spacing, the net rating was insanely high","Analysis","Basketball reasoning"
+"Having burner accounts is the opposite of not caring","Analysis","Logical reasoning"
+"Wu Tang with the generational aura flip","Low-Effort / Noise","Meme"
+"Just happy Ewing is alive to see this","Hot Take","Emotional reaction"
+"They don't have to worry about Bridges picks anymore","Analysis","Team-building reasoning"
+"The Spurs are terrible at closing out games","Hot Take","Opinion"
+"Cat Batman NOW","Low-Effort / Noise","Meme"
+"Pop would have retired sooner if his wife hadn't passed away","Hot Take","Speculation"
+"His wife was everything outside basketball, now he's doing what he loves","Analysis","Reasoning"
+"When you're used to thousands cheering for you, retirement is hard","Analysis","Explanation"
+"What's with all the old Cleveland LeBron highlights?","Low-Effort / Noise","Question"
+"10-year anniversary of Cleveland winning just passed","Analysis","Gives reason"
+"They are quite fun to watch","Hot Take","Opinion"
+"LePropaganda","Low-Effort / Noise","Joke"
+"Jokic helps his teammates get easy shots.","Analysis","Provides basketball reasoning"
+"Tatum is not as good as everyone thinks.","Hot Take","Strong opinion"
+"Bad take.","Low-Effort / Noise","Short reaction"
+"Luka makes smart plays with the ball.","Analysis","Basketball reasoning"
+"LeBron is done.","Hot Take","Strong claim with no evidence"
+"That is wrong.","Low-Effort / Noise","Very short response"
+"The Celtics play good team defense.","Analysis","Explanation of team strategy"
+"Giannis is the best player ever.","Hot Take","Opinion"
+"Trash team.","Low-Effort / Noise","Insult"
+"The Nuggets move the ball well.","Analysis","Basketball reasoning"
+"Curry changes games with his shooting.","Analysis","Explanation"
+"Anthony Edwards will be better than Jordan.","Hot Take","Prediction"
+"I do not agree.","Low-Effort / Noise","No reasoning"
+"The Knicks are playing better this year.","Analysis","Observation"
+"Embiid will never win a title.","Hot Take","Strong opinion"
+"Not true.","Low-Effort / Noise","Short reaction"
+"Brunson has become a better leader.","Analysis","Basketball reasoning"
+"SGA is already better than Kobe.","Hot Take","Strong claim"
+"Terrible opinion.","Low-Effort / Noise","Reaction"
+"The Thunder have many good young players.","Analysis","Team discussion"
