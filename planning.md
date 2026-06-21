@@ -10,6 +10,10 @@ r/nba
 
 This community contains active basketball discussions, game reactions, player debates, trade discussions, and analysis from NBA fans. The quality of discussion varies significantly, making it a good community for a discourse classification task.
 
+### Why I Chose This Community
+
+I chose r/nba because it is one of the largest and most active sports discussion communities online. The community contains a wide variety of comments, including detailed basketball analysis, strong opinions about players and teams, and short reaction comments. This variety makes it a good fit for a classification task because the differences between comment types are meaningful and occur frequently.
+
 ## Task
 
 TakeMeter will classify the quality of NBA discussion comments based on how much meaningful basketball discussion they provide.
@@ -18,15 +22,15 @@ TakeMeter will classify the quality of NBA discussion comments based on how much
 
 High-quality comments usually:
 
-* Explain a basketball idea or strategy
-* Provide evidence, statistics, or comparisons
-* Discuss players, teams, or games in detail
+* Explain a basketball idea or strategy.
+* Provide evidence, statistics, or comparisons.
+* Discuss players, teams, or games in detail.
 
 Low-quality comments are often:
 
-* Very short reactions
-* Insults or personal attacks
-* Strong opinions without reasoning
+* Very short reactions.
+* Insults or personal attacks.
+* Strong opinions without reasoning.
 
 ## Label Taxonomy
 
@@ -47,8 +51,6 @@ A comment that provides reasoning, evidence, basketball knowledge, statistics, c
 
 Analysis, because the comment provides a basketball reason for the claim.
 
----
-
 ### 2. Hot Take
 
 A comment that expresses a strong opinion with little or no supporting evidence.
@@ -65,8 +67,6 @@ A comment that expresses a strong opinion with little or no supporting evidence.
 **Decision:**
 
 Hot Take, because the statistic is mainly used to support a strong opinion rather than provide detailed analysis.
-
----
 
 ### 3. Low-Effort / Noise
 
@@ -126,9 +126,19 @@ Every comment should belong to exactly one label.
 
 These rules help ensure that the labels do not overlap and can be applied consistently.
 
-## Dataset Plan
+## Data Collection Plan
 
-I will collect and manually label at least 200 NBA comments.
+I will collect comments from r/nba discussion threads, game threads, player discussions, and trade discussions.
+
+I will manually label at least 200 comments.
+
+Target distribution:
+
+* Analysis: 70 comments
+* Hot Take: 70 comments
+* Low-Effort / Noise: 60 comments
+
+If one label is underrepresented after collecting 200 comments, I will continue collecting examples until all labels have enough examples for training and evaluation.
 
 Each row will contain:
 
@@ -148,6 +158,30 @@ I will fine-tune DistilBERT (`distilbert-base-uncased`) on the labeled NBA comme
 
 I will compare the fine-tuned model against Groq's `llama-3.3-70b-versatile` using zero-shot classification on the same test set.
 
+## Evaluation Metrics
+
+I will use multiple evaluation metrics because accuracy alone does not show how well the model performs on each label.
+
+### Accuracy
+
+Accuracy measures the percentage of comments classified correctly overall.
+
+### Precision
+
+Precision measures how often a predicted label is correct.
+
+### Recall
+
+Recall measures how many comments from a label are successfully identified by the model.
+
+### F1 Score
+
+F1 Score balances precision and recall and provides a better measure of classification quality.
+
+### Confusion Matrix
+
+The confusion matrix helps identify which labels are most frequently confused with one another.
+
 ## Evaluation Plan
 
 I will evaluate both models using:
@@ -160,6 +194,64 @@ I will evaluate both models using:
 
 I will also include:
 
-* At least three incorrectly classified examples
-* An analysis of model errors
-* A reflection on what the model learned versus what I intended it to learn
+* At least three incorrectly classified examples.
+* An analysis of model errors.
+* A reflection on what the model learned versus what I intended it to learn.
+
+## Definition of Success
+
+I will consider the project successful if:
+
+* The fine-tuned model achieves at least 70% accuracy on the test set.
+* The F1 score for each label (Analysis, Hot Take, and Low-Effort / Noise) is at least 0.70.
+* The fine-tuned model performs better than the Groq zero-shot baseline on overall accuracy.
+* The confusion matrix shows that most predictions fall into the correct category rather than being confused with another label.
+* The model correctly classifies at least 2 out of the 3 difficult edge-case examples selected for error analysis.
+
+If these criteria are met, I would consider the classifier useful for identifying different types of NBA discussion comments in a real online community.
+## AI Tool Plan
+
+### Label Stress-Testing
+
+Before collecting and labeling all 200 comments, I will use ChatGPT to generate 5–10 NBA comments that sit near the boundary between Analysis, Hot Take, and Low-Effort / Noise.
+
+The goal is to test whether my label definitions are clear and mutually exclusive.
+
+Examples of boundary cases I will test:
+
+* A strong opinion supported by one statistic
+* A short comment that contains basketball reasoning
+* A reaction comment that includes a small amount of analysis
+
+If I cannot consistently assign a single label to these examples, I will revise my label definitions and decision rules before beginning large-scale annotation.
+
+### Annotation Assistance
+
+I may use ChatGPT to suggest labels for a small batch of NBA comments before reviewing them manually.
+
+However, all final labels will be reviewed and approved by me before being added to the dataset.
+
+To maintain transparency, I will keep track of which comments were initially pre-labeled by AI and document this process in the AI Usage section of the final report.
+
+### Failure Analysis
+
+After evaluating the model, I will examine incorrectly classified examples and use ChatGPT to help identify common error patterns.
+
+I will specifically look for:
+
+* Confusion between Analysis and Hot Take comments
+* Difficulty classifying short comments
+* Comments that contain both reasoning and opinion
+* Comments that provide weak evidence for a strong claim
+
+Any patterns suggested by AI will be manually verified by reviewing the misclassified examples before being included in the final evaluation report.
+
+### AI Usage Disclosure
+
+AI tools will be used for:
+
+* Label stress-testing
+* Annotation assistance
+* Failure analysis
+
+AI tools will not make final labeling decisions. All final dataset labels, evaluation results, and conclusions will be reviewed and approved by me.
