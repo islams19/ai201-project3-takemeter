@@ -1,49 +1,102 @@
 # TakeMeter Planning
 
 ## Community
-I will classify comments from the NBA online community.
+
+I will classify comments from NBA online communities, including Reddit, forums, and social media discussions.
 
 ## Task
-TakeMeter will classify the quality of NBA discussion comments.
 
-## Labels
+TakeMeter will classify the quality of NBA discussion comments based on how much meaningful basketball discussion they provide.
 
-### 1. Insightful Take
-A comment that gives a clear basketball reason, evidence, comparison, or useful analysis.
+## Label Taxonomy
+
+### 1. Analysis
+
+A comment that provides reasoning, evidence, basketball knowledge, statistics, comparisons, or a clear explanation to support its point.
+
+**Examples:**
+
+* "Jokic helps his teammates get easy shots because of his passing."
+* "The Celtics have one of the best defenses in the league because they can switch every position."
 
 ### 2. Hot Take
-A comment that gives a strong opinion but has little evidence, exaggeration, or emotional language.
 
+A comment that expresses a strong opinion with little or no supporting evidence.
+
+**Examples:**
+
+* "Giannis is the best player ever."
+* "Embiid will never win a championship."
 
 ### 3. Low-Effort / Noise
-A comment that is mostly a joke, insult, meme, one-word reaction, or does not add real discussion.
 
+A comment that does not add meaningful discussion. These comments are usually very short, emotional reactions, insults, jokes, or one-line responses.
+
+**Examples:**
+
+* "Bad take."
+* "Trash team."
+* "Not true."
+
+## Ambiguous Example
+
+**Comment:**
+"LeBron is overrated because he struggles against elite defenses in the playoffs."
+
+**Possible Labels:**
+
+* Analysis
+* Hot Take
+
+**Decision Rule:**
+If a comment provides a specific basketball reason, statistic, comparison, or explanation that supports the claim, it will be labeled as Analysis.
+
+If a comment mainly expresses a strong opinion without meaningful support, it will be labeled as Hot Take.
+
+**Final Label:**
+Analysis
 
 ## Edge Cases
-If a comment has analysis and emotion, label it Insightful Take if it gives a real basketball reason.
-If a comment is strong but gives no clear reason, label it Hot Take.
-If a comment is too short or just a joke, label it Low-Effort / Noise.
+
+* If a comment contains both emotion and basketball reasoning, label it as Analysis.
+* If a comment makes a strong claim but provides little evidence, label it as Hot Take.
+* If a comment is very short and adds little discussion, label it as Low-Effort / Noise.
+* Every comment must belong to exactly one label.
 
 ## Dataset Plan
-I will collect at least 200 NBA comments.
-Each row will include:
-- text
-- label
-- split
 
-The split will be:
-- train
-- validation
-- test
+I will collect and manually label at least 200 NBA comments.
+
+Each row will contain:
+
+* text
+* label
+* split
+
+The dataset will be divided into:
+
+* Train Set (70%)
+* Validation Set (15%)
+* Test Set (15%)
 
 ## Model Plan
-I will fine-tune distilbert-base-uncased.
-I will compare it against Groq llama-3.3-70b-versatile as a zero-shot baseline.
+
+I will fine-tune DistilBERT (`distilbert-base-uncased`) on the labeled NBA comment dataset.
+
+I will compare the fine-tuned model against Groq's `llama-3.3-70b-versatile` using zero-shot classification on the same test set.
 
 ## Evaluation Plan
-I will report:
-- accuracy
-- per-class precision, recall, or F1
-- confusion matrix
-- at least 3 wrong predictions
-- reflection on what the model learned
+
+I will evaluate both models using:
+
+* Accuracy
+* Precision
+* Recall
+* F1 Score
+* Confusion Matrix
+
+I will also include:
+
+* At least three incorrectly classified examples
+* An analysis of model errors
+* A reflection on what the model learned versus what I intended it to learn
