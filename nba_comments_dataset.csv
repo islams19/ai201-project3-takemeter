@@ -1,0 +1,21 @@
+text,label,split
+"Jokic helps his teammates get easy shots.",Insightful Take,train
+"Tatum is not as good as everyone thinks.",Hot Take,train
+"Bad take.",Low-Effort / Noise,train
+"Luka makes smart plays with the ball.",Insightful Take,train
+"LeBron is done.",Hot Take,train
+"That is wrong.",Low-Effort / Noise,train
+"The Celtics play good team defense.",Insightful Take,train
+"Giannis is the best player ever.",Hot Take,train
+"Trash team.",Low-Effort / Noise,train
+"The Nuggets move the ball well.",Insightful Take,train
+"Curry changes games with his shooting.",Insightful Take,train
+"Anthony Edwards will be better than Jordan.",Hot Take,train
+"I do not agree.",Low-Effort / Noise,train
+"The Knicks are playing better this year.",Insightful Take,train
+"Embiid will never win a title.",Hot Take,train
+"Not true.",Low-Effort / Noise,train
+"Brunson has become a better leader.",Insightful Take,train
+"SGA is already better than Kobe.",Hot Take,train
+"Terrible opinion.",Low-Effort / Noise,train
+"The Thunder have many good young players.",Insightful Take,train
