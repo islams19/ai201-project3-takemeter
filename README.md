@@ -59,6 +59,24 @@ Baseline model:
 
 * Groq llama-3.3-70b-versatile
 
+## Training Settings
+
+I fine-tuned the model using the default training settings provided in the notebook.
+
+Model:
+
+* distilbert-base-uncased
+
+Training Hyperparameters:
+
+* Epochs: 3
+* Learning Rate: 2e-5
+* Training Batch Size: 16
+* Evaluation Batch Size: 32
+* Weight Decay: 0.01
+
+I kept the default settings because they are recommended for datasets containing approximately 100–500 examples and provide a strong baseline for text classification.
+
 ## Evaluation
 
 The project will compare:
@@ -118,20 +136,74 @@ Examples that may be difficult to classify:
 
 This project explores the difference between meaningful basketball analysis, opinion-based takes, and low-effort comments.
 
-## Training Settings
+## Results
 
-I fine-tuned the model using the default training settings provided in the notebook.
+### Fine-Tuned Model Performance
 
-Model:
+**Overall Accuracy:** 25%
 
-* distilbert-base-uncased
+#### Per-Class Metrics
 
-Training Hyperparameters:
+| Label              | Precision | Recall | F1 Score |
+| ------------------ | --------- | ------ | -------- |
+| Analysis           | 0.00      | 0.00   | 0.00     |
+| Hot Take           | 0.00      | 0.00   | 0.00     |
+| Low-Effort / Noise | 0.25      | 1.00   | 0.40     |
 
-* Epochs: 3
-* Learning Rate: 2e-5
-* Training Batch Size: 16
-* Evaluation Batch Size: 32
-* Weight Decay: 0.01
+### Confusion Matrix
 
-I kept the default settings because they are recommended for datasets containing approximately 100–500 examples and provide a strong baseline for text classification.
+The confusion matrix showed that the model predicted most examples as **Low-Effort / Noise**.
+
+The model struggled to distinguish between Analysis and Hot Take comments and frequently classified them as Low-Effort / Noise.
+
+The confusion matrix image is included as:
+
+* confusion_matrix.png
+
+## Error Analysis
+
+### Example 1
+
+**Comment:**
+"Luka makes smart plays with the ball."
+
+**True Label:** Analysis
+
+**Predicted Label:** Low-Effort / Noise
+
+**Analysis:**
+The comment contains basketball reasoning but is very short. The model likely relied on comment length rather than recognizing the basketball analysis.
+
+### Example 2
+
+**Comment:**
+"Tatum is not as good as everyone thinks."
+
+**True Label:** Hot Take
+
+**Predicted Label:** Low-Effort / Noise
+
+**Analysis:**
+This comment expresses a strong opinion and should be classified as a Hot Take. Because it is short and lacks supporting evidence, the model confused it with a low-effort reaction.
+
+### Example 3
+
+**Comment:**
+"The Nuggets move the ball well."
+
+**True Label:** Analysis
+
+**Predicted Label:** Low-Effort / Noise
+
+**Analysis:**
+The comment provides a basketball observation, but the model incorrectly treated it as a short reaction comment.
+
+## Final Reflection
+
+The model struggled to distinguish between Analysis, Hot Take, and Low-Effort / Noise comments. Most predictions were assigned to the Low-Effort / Noise category.
+
+One major reason for this result is the small dataset size. The project recommends at least 200 labeled examples, while this experiment used approximately 50 examples. With more labeled data, the model would likely learn stronger patterns and better distinguish between the three classes.
+
+The error analysis suggests that short comments were especially difficult for the model. Even comments containing basketball reasoning were sometimes classified as Low-Effort / Noise because they lacked detailed explanations.
+
+Future improvements would include collecting more examples, balancing the label distribution, and expanding the number of Analysis and Hot Take examples before retraining the model.
