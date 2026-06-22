@@ -71,6 +71,41 @@ The project will compare:
 
 The fine-tuned model will be evaluated against the Groq zero-shot baseline.
 
+## Evaluation Interpretation
+
+The model's overall accuracy shows how many test examples it classified correctly.
+
+I also reviewed precision, recall, and F1 score for each label because accuracy alone does not show whether the model performs well on every class.
+
+### Accuracy
+
+Accuracy measures the percentage of comments classified correctly overall.
+
+### Precision
+
+Precision measures how often a predicted label is correct. High precision means the model is usually correct when it predicts a specific label.
+
+### Recall
+
+Recall measures how many comments from a label are successfully identified by the model. High recall means the model is finding most examples of that label.
+
+### F1 Score
+
+F1 Score combines precision and recall into a single metric and provides a balanced measure of performance.
+
+### Confusion Matrix
+
+The confusion matrix helps identify which labels are most commonly confused with one another. This is especially useful for understanding whether the model struggles to distinguish between Analysis and Hot Take comments.
+
+### Success Criteria
+
+A successful model should achieve:
+
+* Overall accuracy above 70%
+* Per-class F1 scores near or above 0.70
+* Clear improvement over the Groq zero-shot baseline
+* Most predictions appearing on the diagonal of the confusion matrix
+
 ## Difficult Examples
 
 Examples that may be difficult to classify:
