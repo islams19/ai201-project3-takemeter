@@ -117,3 +117,21 @@ Examples that may be difficult to classify:
 ## Reflection
 
 This project explores the difference between meaningful basketball analysis, opinion-based takes, and low-effort comments.
+
+## Training Settings
+
+I fine-tuned the model using the default training settings provided in the notebook.
+
+Model:
+
+* distilbert-base-uncased
+
+Training Hyperparameters:
+
+* Epochs: 3
+* Learning Rate: 2e-5
+* Training Batch Size: 16
+* Evaluation Batch Size: 32
+* Weight Decay: 0.01
+
+I kept the default settings because they are recommended for datasets containing approximately 100–500 examples and provide a strong baseline for text classification.
